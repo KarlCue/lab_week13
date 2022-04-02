@@ -1,21 +1,19 @@
-const originalOneSection = document.querySelector('section.originals div.original-container')
+const originalSection = document.querySelectorAll('section.originals div.original-container div') 
 const copiesSection = document.querySelector('div.copy-container')
 
-const originalOneTemplate = `  <div><p>one</p></div>` //place holder if i dont figure it out
 
 function addTemplateOne() {
-    originalsection = document.querySelector('.div.original-container')
-    copiesSection.insertAdjacentHTML('afterbegin', originalOneTemplate)
-    console.log(originalsection)
+
+    const innerText = this.querySelector("p").textContent; //.textContent returns the specified node and all of the decendants //'this' refers to the indexed array
+    copiesSection.insertAdjacentHTML('afterbegin', `<p>${innerText}</p>`);
 }
 
-originalOneSection.addEventListener('click',addTemplateOne)
+originalSection[0].addEventListener('click', addTemplateOne); // array of elements accessed through indexing
+originalSection[1].addEventListener('click', addTemplateOne);
 
 
 
-console.log(originalOneSection.firstChild)
-
-//Deletes the copies
+//Deletes the copy
 const btn = document.querySelector('.copies')
 
 function clearlist() {
